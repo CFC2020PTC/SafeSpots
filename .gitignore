@@ -1,0 +1,8 @@
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
+.gradle/
+build/
+/.classpath
+WebContent/WEB-INF/lib
+/.apt_generated/
