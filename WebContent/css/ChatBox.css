@@ -1,0 +1,16 @@
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+}
+
+textarea.textarea-autosize {
+  height: 2.25rem;
+  min-height: 2.25rem;
+  max-height: 4rem;
+  resize: vertical;
+  overflow-y:auto;
+}
+
+.author, .time {
+	color: #cc6600;
+}

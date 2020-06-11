@@ -1,0 +1,91 @@
+{
+	"catData": [
+		{
+			"locName": "Bangalore",
+			"spots": [
+				{
+					"spotCategoryName": "Shopping Malls",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Hospitals",
+					"numerOfSpots": "11"
+				},
+				{
+					"spotCategoryName": "Medical Stores",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Restaurants",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Food Markets",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Grocery Markets",
+					"numerOfSpots": "10"
+				}
+			]
+		},
+		{
+			"locName": "Pune",
+			"spots": [
+				{
+					"spotCategoryName": "Shopping Malls",
+					"numerOfSpots": "20"
+				},
+				{
+					"spotCategoryName": "Hospitals",
+					"numerOfSpots": "21"
+				},
+				{
+					"spotCategoryName": "Medical Stores",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Restaurants",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Food Markets",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Grocery Markets",
+					"numerOfSpots": "10"
+				}
+			]
+		},
+		{
+			"locName": "Delhi",
+			"spots": [
+				{
+					"spotCategoryName": "Shopping Malls",
+					"numerOfSpots": "30"
+				},
+				{
+					"spotCategoryName": "Hospitals",
+					"numerOfSpots": "31"
+				},
+				{
+					"spotCategoryName": "Medical Stores",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Restaurants",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Food Markets",
+					"numerOfSpots": "10"
+				},
+				{
+					"spotCategoryName": "Grocery Markets",
+					"numerOfSpots": "10"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,39 @@
+.dou-item {
+	cursor: pointer;
+}
+
+.card {
+	word-break: break-all
+}
+
+.scrollable-menu {
+	height: auto;
+	max-height: 1200%;
+	overflow-x: hidden;
+}
+
+.column {
+	padding: 0.5%;
+	float: left;
+}
+
+.class-file-name {
+	width: 35%;
+	max-width: 35;
+}
+
+.class-updated-on {
+	max-width: 20%;
+}
+
+.class-updated-by {
+	max-width: 20%;
+}
+
+.class-size {
+	max-width: 20%;
+}
+
+.class-actions {
+	max-width: 15%;
+}
