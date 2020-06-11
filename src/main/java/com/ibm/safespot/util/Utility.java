@@ -35,24 +35,49 @@ public class Utility {
 		}
 	}
 
-
 	/**
-	 * Get the environment from config.properties file.
+	 * Get the api-key from config.properties file.
 	 * 
-	 * @return {String} environment name.
+	 * @return {String} api-key.
 	 */
-	public static String getEnvironment() {
-		return properties.getProperty("ENVIRONMENT");
+	public static String getDiscoveryAPIKey() {
+		return properties.getProperty("DISCOVERY_API_KEY");
 	}
 	
 	/**
-	 * Get the Database from config.properties file.
+	 * Get the service url from config.properties file.
 	 * 
-	 * @return {String} database name.
+	 * @return {String} service url.
 	 */
-	public static String getSafeSpotDatabase() {
-		return properties.getProperty("SAFE_SPOTS_DATABASE");
+	public static String getDiscoveryServiceUrl() {
+		return properties.getProperty("DISCOVERY_SERVICE_URL");
 	}
 	
+	/**
+	 * Get the environment Id from config.properties file.
+	 * 
+	 * @return {String} environment Id.
+	 */
+	public static String getEnvironmentId() {
+		return properties.getProperty("ENVIRONMENT_ID");
+	}
+	
+	/**
+	 * Get the collection id from config.properties file.
+	 * 
+	 * @return {String} collection id.
+	 */
+	public static String getCollectionId() {
+		return properties.getProperty("COLLECTION_ID");
+	}
+	
+	/**
+	 * Get the version date from config.properties file.
+	 * 
+	 * @return {String} version date.
+	 */
+	public static String getVersionDate() {
+		return properties.getProperty("VERSION_DATE");
+	}
 
 }

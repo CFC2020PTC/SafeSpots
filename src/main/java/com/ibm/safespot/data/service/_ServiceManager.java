@@ -1,13 +1,8 @@
 package com.ibm.safespot.data.service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
-import com.cloudant.client.api.model.Response;
-import com.ibm.safespot.model.SafeSpot;
-import com.ibm.safespot.util.Constants;
-
+import com.ibm.safespot.util.Utility;
+import com.ibm.watson.discovery.v1.model.QueryOptions;
+import com.ibm.watson.discovery.v1.model.QueryResponse;
 
 /**
  * Base class for all data service classes.
@@ -19,35 +14,12 @@ public abstract class _ServiceManager {
 
 	ServiceManagerSingleton serviceManagerSingleton = ServiceManagerSingleton.getInstance();
 	
-	/**
-	 * Save the {@link Object} in database.
-	 * @param object {@link Object}
-	 * @return {@link Response}
-	 */
-	protected Response save (Object object) {
-		return serviceManagerSingleton.getSafeSpotDatabase().save(object);
+	protected QueryResponse getQuerySearchResult (String query) {
+		QueryOptions.Builder queryBuilder = new QueryOptions.Builder(Utility.getEnvironmentId(), Utility.getCollectionId());
+		queryBuilder.query(query).count(1000);
+		QueryResponse queryResponse = serviceManagerSingleton.getDiscovery().query(queryBuilder.build()).execute().getResult();
+		return queryResponse;
 	}
 	
-	/**
-	 * Update the {@link SafeSpot} in database.
-	 * @param object {@link Object}
-	 * @return {@link Response}
-	 */
-	protected Response update (Object object) {
-		return serviceManagerSingleton.getSafeSpotDatabase().update(object);
-	}
-	
-	/**
-	 * Gets the current timestamp in GMT time
-	 * 
-	 * @return String of current timestamp
-	 */
-	public String getCurrentTimestamp() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(Constants.DATE_FORMAT);
-		simpleDateFormat.setTimeZone(TimeZone.getTimeZone(Constants.TIMEZONE));
-		return simpleDateFormat.format(new Date());
-	}
-
-
 
 }
