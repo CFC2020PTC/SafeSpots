@@ -7,3 +7,5 @@ This is java web based project which will hold the REST APIs for Safe Spots.
 3. Add all the jars from WebContent/WEB-INF/lib to build path.
 4. Run the application on liberty server.
 5. Test the REST API using http://localhost:9080/SafeSpots/rest/safespots/check
+
+## Problem statemen
