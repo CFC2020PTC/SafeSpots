@@ -45,5 +45,14 @@ public class Utility {
 		return properties.getProperty("ENVIRONMENT");
 	}
 	
+	/**
+	 * Get the Database from config.properties file.
+	 * 
+	 * @return {String} database name.
+	 */
+	public static String getSafeSpotDatabase() {
+		return properties.getProperty("SAFE_SPOTS_DATABASE");
+	}
+	
 
 }

@@ -1,0 +1,13 @@
+applications:
+- buildpack: liberty-for-java
+  disk_quota: 1536M
+  instances: 1
+  memory: 1024M
+  name: Safe Spot Locator
+  path: defaultServer
+  routes:
+  - route: safespot.au-syd.cf.appdomain.cloud
+  services:
+  - Cloudant-6o
+  - Watson Assistant-dh
+  - Discovery-wv
