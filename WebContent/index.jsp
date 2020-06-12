@@ -1,4 +1,3 @@
-<%@page import="ibm.ptc.dou.business.DoUBusinessLogic"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -176,6 +175,11 @@
 								<i class="fas fa-store fa-circle fa-2x text-dark"></i>
 							</div>
 						</div>
+						<h5>
+							<a aria-cat-name="shopping-malls" href="#" 
+								class="stretched-link float-right" onclick="categoryBasedCards(this)">
+							</a>
+						</h5>
 					</div>
 				</div>
 			</div>
@@ -200,7 +204,11 @@
 								<i class="far fa-hospital fa-circle fa-2x text-dark"></i>
 							</div>
 						</div>
-
+<h5>
+							<a aria-cat-name="hospitals" href="#" 
+								class="stretched-link float-right" onclick="categoryBasedCards(this)">
+							</a>
+						</h5>
 					</div>
 				</div>
 			</div>
@@ -224,7 +232,11 @@
 								<i class="fas fa-first-aid fa-circle fa-2x text-dark"></i>
 							</div>
 						</div>
-
+<h5>
+							<a aria-cat-name="pharmacies" href="#" 
+								class="stretched-link float-right" onclick="categoryBasedCards(this)">
+							</a>
+						</h5>
 					</div>
 				</div>
 			</div>
@@ -252,6 +264,11 @@
 								<i class="fas fa-utensils fa-circle fa-2x text-dark"></i>
 							</div>
 						</div>
+						<h5>
+							<a aria-cat-name="restaurants" href="#" 
+								class="stretched-link float-right" onclick="categoryBasedCards(this)">
+							</a>
+						</h5>
 
 					</div>
 				</div>
@@ -286,7 +303,11 @@
 								<i class="fas fa-shopping-cart fa-circle fa-2x text-dark"></i>
 							</div>
 						</div>
-
+						<h5>
+							<a aria-cat-name="groceries" href="#" 
+								class="stretched-link float-right" onclick="categoryBasedCards(this)">
+							</a>
+						</h5>
 					</div>
 				</div>
 			</div>
@@ -555,7 +576,7 @@
 
 																			<div id="review-div-template"
 																				class="card shadow w-75 mb-3">
-																				<div  class="p-0 pl-2">
+																				<div class="p-0 pl-2">
 																					<strong id="review-author-div" class="author"></strong>
 																				</div>
 																				<div id="reivew-body-div"
@@ -639,8 +660,55 @@
 		</div>
 
 		<!-- Content Row  for cards in masonry arrangement-->
-		<div id="relevant-cards"
-			class="row view-group d-flex justify-content-start"></div>
+		<!-- <div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio"
+				name="inlineRadioOptions" id="inlineRadio1" value="option1">
+			<label class="form-check-label" for="inlineRadio1">Map View</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio"
+				name="inlineRadioOptions" id="inlineRadio2" value="option2">
+			<label class="form-check-label" for="inlineRadio2">Card View</label>
+		</div> -->
+		<div style="background: aliceblue;">
+			<div id="map-view">
+				<div class="card">
+					<div class="card-header" id="headingMap">
+						<h2 class="mb-0">
+							<button class="btn btn-link collapsed" type="button"
+								data-toggle="collapse" data-target="#collapseMap"
+								aria-expanded="false" aria-controls="collapseMap">Map
+								View</button>
+						</h2>
+					</div>
+					<div id="collapseMap" class="collapse" aria-labelledby="headingMap"
+						data-parent="#accordionExample">
+						<div class="card-body">
+							<iframe src="map3.jsp" width="1350vh" height="650vh"></iframe>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse"
+							data-target="#collapseThree" aria-expanded="true"
+							aria-controls="collapseThree">Card View</button>
+					</h2>
+				</div>
+				<div id="collapseThree" class="collapse show"
+					aria-labelledby="headingThree" data-parent="#accordionExample">
+					<div class="card-body">
+						<div id="relevant-cards"
+							class="row view-group d-flex justify-content-start"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 
