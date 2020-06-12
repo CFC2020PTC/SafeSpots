@@ -20,6 +20,15 @@ public class SafeSpot {
 	private String LatLong;
 	@SerializedName("city")
 	private String city;
+	@SerializedName("safty_review")
+	private List<SafeSpotReviews> saftyReview;
+	
+	public List<SafeSpotReviews> getSaftyReview() {
+		return saftyReview;
+	}
+	public void setSaftyReview(List<SafeSpotReviews> saftyReview) {
+		this.saftyReview = saftyReview;
+	}
 	/**
 	 * @return the latLong
 	 */
@@ -68,18 +77,4 @@ public class SafeSpot {
 	public void setType(String type) {
 		this.type = type;
 	}
-	/**
-	 * @return the saftyReviews
-	 */
-	public List<SafeSpotReviews> getSaftyReviews() {
-		return saftyReviews;
-	}
-	/**
-	 * @param saftyReviews the saftyReviews to set
-	 */
-	public void setSaftyReviews(List<SafeSpotReviews> saftyReviews) {
-		this.saftyReviews = saftyReviews;
-	}
-	@SerializedName("safty_review")
-	private List<SafeSpotReviews> saftyReviews; 
 }

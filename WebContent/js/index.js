@@ -1,26 +1,15 @@
 $(document).ready(function() {
 	activeNavItem();
-	getDoUStatusCount();
 	// getRelevantGroups();
 });
 var global_DataArr;
 function onPageLoad() {
-	getDoUStatusCount();
 	getRelevantGroups();
 }
 
 function activeNavItem() {
 // $("#dashboard-nav-item a")[0].prepend("");
 	$("#dashboard-nav-item").addClass("active");
-}
-
-function getDoUStatusCount() {
-	$.get("/rest/dou/groups/douStatusCount", function(data) {
-		$("#status-new-count").text(data.NEW);
-		$("#status-pending-count").text(data.PENDING);
-		$("#status-approved-count").text(data.APPROVED);
-		$("#status-canceled-count").text(data.CANCELED);
-	});
 }
 
 function populateModal(obj) {
@@ -94,11 +83,11 @@ function generateReviewCard(review) {
 }
 
 function getRelevantGroups() {
-	$.get("/rest/dou/groups", function(data) {
+	$.get("/SafeSpots/rest/safespots/getCategoriesByCategory?city=Bangalore&category=Pharmacies", function(data) {
+		data = JSON.parse(data);
 		global_DataArr = data["safeLocData"];
-		// Object.keys(data[0]);
-		console.log(data)
 		var dataArr = data["safeLocData"];
+		console.log(dataArr);
 		populateRelevantCardsdeck(dataArr);
 	});
 }
@@ -182,7 +171,6 @@ $("#create_dou_form").submit(function(event) {
 				$("#initiate-button").removeClass("d-none");
 				if(returnData["code"] == "SUCCESS") {
 					$("#dou-upload-form").modal('hide');
-					getDoUStatusCount();
 					getRelevantGroups();
 					alertSuccess(returnData["message"]);
 				} else {
