@@ -12,6 +12,50 @@ function activeNavItem() {
 	$("#dashboard-nav-item").addClass("active");
 }
 
+<<<<<<< HEAD
+function getDoUStatusCount() {
+	$.get("/rest/dou/groups/douStatusCount", function(data) {
+		$("#status-new-count").text(data.NEW);
+		$("#status-pending-count").text(data.PENDING);
+		$("#status-approved-count").text(data.APPROVED);
+		$("#status-canceled-count").text(data.CANCELED);
+	});
+}
+
+
+function categoryBasedCards(obj) {
+	var type = $(obj).attr("aria-cat-name")
+	
+	
+	$.get("/rest/dou/groups", function(data) {
+		global_DataArr = data["safeLocData"];
+		
+		var data = [];
+		for(var i=0; i<global_DataArr.length; i++) {
+			if(global_DataArr[i]["type"].replace(" ","-").toLowerCase() == type.toLowerCase()) {
+				data.push(global_DataArr[i]);
+			}
+		}
+		populateRelevantCardsdeck(data);
+		
+	});
+	
+//	populateGlobalData();
+//	
+//	
+//	setTimeout(function(){ 
+//		var data = [];
+//	for(var i=0; i<global_DataArr.length; i++) {
+//		if(global_DataArr[i]["type"].replace(" ","-").toLowerCase() == type.toLowerCase()) {
+//			data.push(global_DataArr[i]);
+//		}
+//	}
+//	populateRelevantCardsdeck(data);
+//},"1000");
+}
+
+=======
+>>>>>>> refs/remotes/origin/master
 function populateModal(obj) {
 	
 	var id = $(obj).attr("aria-id")
@@ -80,6 +124,12 @@ function generateReviewCard(review) {
 	reviewCard.removeAttr("id")
 	return reviewCard;
 	
+}
+
+function populateGlobalData() {
+	$.get("/rest/dou/groups", function(data) {
+		global_DataArr = data["safeLocData"];
+	});
 }
 
 function getRelevantGroups() {
