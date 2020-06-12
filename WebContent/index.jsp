@@ -546,7 +546,7 @@
 													data-parent="#accordionExample">
 													<div class="card-body">
 														<div class="card-body p-4">
-															<iframe src="/feedback.jsp" width="1000vh" height="650vh"></iframe>
+															<iframe src="/SafeSpots/feedback.jsp" width="1000vh" height="650vh"></iframe>
 														</div>
 													</div>
 												</div>

@@ -21,5 +21,13 @@ public abstract class _ServiceManager {
 		return queryResponse;
 	}
 	
+	protected QueryResponse getQuerySearchResult (String query1, String query2) {
+		QueryOptions.Builder queryBuilder = new QueryOptions.Builder(Utility.getEnvironmentId(), Utility.getCollectionId());
+		queryBuilder.query(query1).count(1000);
+		queryBuilder.query(query2);
+		QueryResponse queryResponse = serviceManagerSingleton.getDiscovery().query(queryBuilder.build()).execute().getResult();
+		return queryResponse;
+	}
+	
 
 }

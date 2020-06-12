@@ -28,8 +28,20 @@ public class SafeSpotAPI {
 	 */
 	@GET
 	@Path("/getCategories")
-	public String saveSafeSpot(@FormParam("city") String city) throws SafeSpotException {
+	public String getCategories(@FormParam("city") String city) throws SafeSpotException {
 		return gson.toJson(safeSpotDataService.getAllResults("city:"+city));
+	}
+	
+	/**
+	 * Get the SafeSpots for given city and category.
+	 * 
+	 * @return
+	 * @throws SafeSpotException
+	 */
+	@GET
+	@Path("/getCategoriesByCategory")
+	public String getCategoriesByCategory(@FormParam("city") String city, @FormParam("category") String category) throws SafeSpotException {
+		return gson.toJson(safeSpotDataService.getCategoriesByCategory("city:"+city, "type:"+category));
 	}
 	
 }
