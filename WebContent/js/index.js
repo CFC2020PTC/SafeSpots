@@ -12,22 +12,13 @@ function activeNavItem() {
 	$("#dashboard-nav-item").addClass("active");
 }
 
-<<<<<<< HEAD
-function getDoUStatusCount() {
-	$.get("/rest/dou/groups/douStatusCount", function(data) {
-		$("#status-new-count").text(data.NEW);
-		$("#status-pending-count").text(data.PENDING);
-		$("#status-approved-count").text(data.APPROVED);
-		$("#status-canceled-count").text(data.CANCELED);
-	});
-}
-
 
 function categoryBasedCards(obj) {
 	var type = $(obj).attr("aria-cat-name")
 	
 	
-	$.get("/rest/dou/groups", function(data) {
+	$.get("/SafeSpots/rest/safespots/getCategoriesByCategory1?city=Bangalore", function(data) {
+		data = JSON.parse(data);
 		global_DataArr = data["safeLocData"];
 		
 		var data = [];
@@ -54,8 +45,6 @@ function categoryBasedCards(obj) {
 //},"1000");
 }
 
-=======
->>>>>>> refs/remotes/origin/master
 function populateModal(obj) {
 	
 	var id = $(obj).attr("aria-id")

@@ -44,4 +44,16 @@ public class SafeSpotAPI {
 		return gson.toJson(safeSpotDataService.getCategoriesByCategory("city:"+city, "type:"+category));
 	}
 	
+	/**
+	 * Get the SafeSpots for given city and category.
+	 * 
+	 * @return
+	 * @throws SafeSpotException
+	 */
+	@GET
+	@Path("/getCategoriesByCategory1")
+	public String getCategoriesByCategory(@FormParam("city") String city) throws SafeSpotException {
+		return gson.toJson(safeSpotDataService.getCategoriesByCategory("city:"+city));
+	}
+	
 }

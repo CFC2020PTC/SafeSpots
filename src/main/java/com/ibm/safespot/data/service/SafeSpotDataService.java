@@ -64,4 +64,31 @@ public class SafeSpotDataService extends _ServiceManager{
 		return safeSpotsTO;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public SafeSpotsTO getCategoriesByCategory(String city){
+		SafeSpotsTO safeSpotsTO = new SafeSpotsTO();
+		List<SafeSpot> safeSpots = new ArrayList<SafeSpot>();
+		QueryResponse queryResponse = getQuerySearchResult(city);
+		List<QueryResult> results = queryResponse.getResults();
+		for (QueryResult queryResult : results) {
+			SafeSpot safeSpot = new SafeSpot();
+			safeSpot.setCity((String) queryResult.get("city"));
+			safeSpot.setName((String) queryResult.get("name"));
+			safeSpot.setLatLong((String) queryResult.get("LatLong"));
+			safeSpot.setType((String) queryResult.get("type"));
+			
+			safeSpot.setAddress((String) queryResult.get("address"));
+			safeSpot.setOverAllsanitization((Number) queryResult.get("overAllsanitization"));
+			safeSpot.setOverAlltemperature_sensor((Number) queryResult.get("overAlltemperature_sensor"));
+			safeSpot.setOverAllsocial_distancing((Number) queryResult.get("overAllsocial_distancing"));
+			safeSpot.setOverAllmask((Number) queryResult.get("overAllmask"));
+			safeSpot.setOverAllRating((Number) queryResult.get("overAllRating"));
+
+			safeSpot.setSaftyReview((ArrayList<SafeSpotReviews>) queryResult.get("safty_review"));
+			safeSpots.add(safeSpot);
+		}
+		safeSpotsTO.setSafeLocData(safeSpots);
+		return safeSpotsTO;
+	}
+	
 }
