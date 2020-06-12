@@ -51,7 +51,8 @@
 	<!-- DatePicker Popover content start -->
 	<div style="display: none">
 		<div id="datepicker-popover-content-template">
-			<div id="set-approval-due-date-form" class="set-approval-due-date-form" aria-person="">
+			<div id="set-approval-due-date-form"
+				class="set-approval-due-date-form" aria-person="">
 				<div id="approval-due-date-config">
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -68,8 +69,8 @@
 					<div id="approval-due-date-notification-switch-wrapper-template"
 						class="mb-2">
 						<input id="approval-due-date-notification-switch-template"
-							type="checkbox" class="" onchange="onSwitchToggle(this)"> <label
-							id="approval-due-date-notification-switch-label-template"
+							type="checkbox" class="" onchange="onSwitchToggle(this)">
+						<label id="approval-due-date-notification-switch-label-template"
 							class="font-weight-bold text-dark"
 							for="approval-due-date-notification-switch-template">Notification</label>
 					</div>
@@ -86,7 +87,9 @@
 								aria-describedby="approval-due-date-notification-start-date-label" />
 						</div>
 						<div class="input-group mb-3">
-							<label id="approval-due-date-notification-frequency-label-template" class="text-dark font-weight-bold mx-2"
+							<label
+								id="approval-due-date-notification-frequency-label-template"
+								class="text-dark font-weight-bold mx-2"
 								for="approval-due-date-notification-frequency-template">Notification
 								frequency</label> <select class="form-control"
 								id="approval-due-date-notification-frequency-template">
@@ -134,17 +137,6 @@
 				<div id="role" class="mt-1 text-success" selectedRole=""></div>
 			</div> </span>
 	</div>
-	<%
-		Map<String, String> colourMap = new HashMap<String, String>() {
-			{
-				put("", "");
-				put("NEW", "primary");
-				put("PENDING", "info");
-				put("APPROVED", "success");
-				put("CANCELED", "danger");
-			}
-		};
-	%>
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
 		<div class="row mb-4">
@@ -157,7 +149,7 @@
 					<input class="form-control" id="search-dou" type="text"
 						placeholder="Search DoUs.."></input>
 					<div class="dropdown-divider"></div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -174,11 +166,7 @@
 						<li class="nav-item"><a class="nav-link" id="attachments-tab"
 							data-toggle="tab" href="#attachments" role="tab"
 							aria-controls="Attachments" aria-selected="false">Attachments</a></li>
-						<li class="nav-item"><a class="nav-link"
-							id="revision-history-tab" data-toggle="tab"
-							href="#revision-history" role="tab"
-							aria-controls="Revision History" aria-selected="false">Revision
-								History</a></li>
+
 					</ul>
 					<div class="dynamic-block">
 						<button id="dou-download"
@@ -198,72 +186,317 @@
 				<div id="dou" groupId="" class="card-body pl-0 pr-0">
 					<div id="dou-header"
 						class="dynamic-block card-header border dynamic-border-color border-bottom-0 rounded-bottom"
-						style="display: none">
-						<h5>
-							<b id="dou_name" class="card-title dynamic-text-color"></b> <b
-								id="dou_file_version" class="card-title badge badge-dark ml-3"></b>
-						</h5>
+						style="display: block">
+						<div id="" class="float-right">
+							<button id="edit-access-btn" class="btn btn-outline-dark">Contact
+								Apollo</button>
+						</div>
+						<div>
+							<b id="dou_name" class="card-title font-weight-bold h2">Apollo</b>
+							<sup id="dou_file_version"
+								class="card-title badge badge-dark text-success ml-3 h1">3.8
+								<i class="far fa-star"></i>
+							</sup>
+						</div>
 
-						<footer class="card-subtitle">Initiated by <cite
-							id="created_by" class="text-dark font-weight-bold"
-							title="Initiator"></cite>, on <cite id="created_time"
-							class="text-dark font-weight-bold" title="Initiated Time"></cite></footer>
+
+						<footer class="card-subtitle blockquote-footer" id="address"
+							class="text-dark font-weight-bold" title="Initiated Time">Bheema
+						Building, Kentucky road, Opp IIM Blr, Bangalore</footer>
 					</div>
-					<p id="instruction" class="card-text" style="text-align: center;">Select
-						a DoU to view Details</p>
+					<p id="instruction" class="card-text d-none"
+						style="text-align: center;">Select a DoU to view Details</p>
 					<div class="dynamic-block tab-content" id="myTabContent"
-						style="display: none">
+						style="display: block">
 						<!-- Details Tab -->
 						<div id="details"
 							class="card tab-pane fade shadow dynamic-border-color active show border-top-0"
 							role="tabpanel" aria-labelledby="details-tab">
 
 							<div class="card-body">
-								<p class="text-dark card-text">
-								<p id="dou_status_prefix_connector"
-									class="card-text text-dark d-inline"></p>
-								<b id="dou_status" class="card-text dynamic-text-color d-inline"></b>
-								<p id="dou_status_suffix_connector"
-									class="card-text text-dark d-inline"></p>
-								<b id="dou_status_suffix"
-									class="card-text dynamic-text-color d-inline"></b>
-								</p>
+								<div id="desc" class="">
+									<p class="card-text">Apollo Clinics are multi-specialty
+										clinics run by Apollo Health & Lifestyle Limited (AHLL), a
+										subsidiary of Apollo Hospitals Enterprise Limited (AHEL). AHLL
+										is one of the largest players in the retail healthcare segment
+										in India.</p>
+									<p class="card-text">Apollo Clinics was founded in 2002
+										with the aim “to bring healthcare of international standards
+										within the reach of every individual.” To achieve this, Apollo
+										Clinics run a large network of Apollo Clinics with over 75
+										clinics, both owned and franchised in India and overseas.</p>
+									<p class="card-text">Each Apollo Clinic is committed to not
+										only providing consistently superior quality health care
+										services but also addressing the day-to-day health care needs
+										of the family. To maximize convenience and comfort, Apollo
+										Clinic is an integrated model and offers facilities for
+										Specialist Consultation, Diagnostics, Preventive Health Checks
+										and Pharmacy, all under one roof.</p>
+								</div>
+							</div>
+							<hr>
 
-								<!-- New Access List -->
-								<div class="dynamic-border-color rounded border w-50">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item text-dark font-weight-bold">
-											<div id="" class="float-right">
-												<button id="edit-access-btn"
-													class="btn btn-outline-dark dou-tooltips"
-													data-toggle="modal" data-target="#edit-access-modal"
-													data-placement="top" title="Edit the access to this DoU"
-													onclick="populateEditAccessForm()">Edit Access</button>
-												<button id="delegate-access-btn"
-													class="btn btn-outline-dark dou-tooltips"
-													data-toggle="modal" data-placement="top"
-													title="Delegate your access to this DoU"
-													data-target="#delegate-access-modal"
-													onclick="populateDelegateAccessForm()">Delegate
-													Access</button>
-												<button id="add-reviewer-access-btn"
-													class="btn btn-outline-dark dou-tooltips"
-													data-toggle="modal" data-placement="top"
-													title="Add a Product Reviewer to this DoU"
-													data-target="#add-reviewer-modal"
-													onclick="populateAddReviewerAccessForm()">Add
-													Reviewers</button>
+							<div id="reviews&ratings"
+								class="card dynamic-border-color border-0">
+
+								<div class="d-flex justify-content-between">
+									<h4 class="mx-4">Review & Ratings</h4>
+									<div class="mr-4 h3 border border-dark rounded p-1">
+										Overall <b>3.8/5</b>
+									</div>
+								</div>
+								<div class="card-group p-2 border-0" id="ratings">
+									<div class="col-3 mb-4">
+										<div class="card border-left-info shadow h-100 py-2">
+											<div class="card-body">
+												<div class="row no-gutters align-items-center">
+													<div class="col mr-2">
+														<div
+															class="h6 small font-weight-bold text-info text-uppercase mb-1">Sanitization</div>
+														<div class="row no-gutters align-items-center">
+															<div class="col-auto mr-4 small">
+																<i class="fas fa-pump-medical fa-2x text-dark"></i>
+															</div>
+
+															<div class="col">
+																<div class="progress progress-sm mr-2">
+																	<div class="progress-bar bg-info" role="progressbar"
+																		style="width: 68%" aria-valuenow="50"
+																		aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto">
+														<div class="h5 mr-2 font-weight-bold text-gray-800">3.4/5</div>
+													</div>
+												</div>
 											</div>
-										</li>
-									</ul>
-									<ul id="people-list" class="list-group list-group-flush">
+										</div>
+									</div>
 
-									</ul>
+									<div class="col-3 mb-4">
+										<div class="card border-left-info shadow h-100 py-2">
+											<div class="card-body">
+												<div class="row no-gutters align-items-center">
+													<div class="col mr-2">
+														<div
+															class="h6 small font-weight-bold text-info text-uppercase mb-1">Temperature
+															Sensor</div>
+														<div class="row no-gutters align-items-center">
+															<div class="col-auto mr-4 small">
+																<i class="fas fa-temperature-high fa-2x text-dark"></i>
+															</div>
+
+															<div class="col">
+																<div class="progress progress-sm mr-2">
+																	<div class="progress-bar bg-info" role="progressbar"
+																		style="width: 68%" aria-valuenow="50"
+																		aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto">
+														<div class="h5 mr-2 font-weight-bold text-gray-800">3.4/5</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-3 mb-4">
+										<div class="card border-left-info shadow h-100 py-2">
+											<div class="card-body">
+												<div class="row no-gutters align-items-center">
+													<div class="col mr-2">
+														<div
+															class="h6 small font-weight-bold text-info text-uppercase mb-1">Social
+															Distancing</div>
+														<div class="row no-gutters align-items-center">
+															<div class="col-auto mr-4 small">
+																<i class="fas fa-people-arrows fa-2x text-dark"></i>
+															</div>
+
+															<div class="col">
+																<div class="progress progress-sm mr-2">
+																	<div class="progress-bar bg-info" role="progressbar"
+																		style="width: 68%" aria-valuenow="50"
+																		aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto">
+														<div class="h5 mr-2 font-weight-bold text-gray-800">3.4/5</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-3 mb-4">
+										<div class="card border-left-info shadow h-100 py-2">
+											<div class="card-body">
+												<div class="row no-gutters align-items-center">
+													<div class="col mr-2">
+														<div
+															class="h6 small font-weight-bold text-info text-uppercase mb-1">Mask</div>
+														<div class="row no-gutters align-items-center">
+															<div class="col-auto mr-4 small">
+																<i class="fas fa-head-side-mask fa-2x text-dark"></i>
+															</div>
+
+															<div class="col">
+																<div class="progress progress-sm mr-2">
+																	<div class="progress-bar bg-info" role="progressbar"
+																		style="width: 68%" aria-valuenow="50"
+																		aria-valuemin="0" aria-valuemax="100"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto">
+														<div class="h5 mr-2 font-weight-bold text-gray-800">3.4/5</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<h5 class="mx-2">Write a review</h5>
+
+								<div class="card-body p-4">
+									<form>
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label for="inputPassword4">Name</label> <input type="text"
+													class="form-control" id="name" placeholder="Name">
+											</div>
+											<div class="form-group col-md-6">
+												<label for="inputEmail4">Email</label> <input type="email"
+													class="form-control" id="inputEmail4" placeholder="Email">
+											</div>
+
+										</div>
+										
+										<div class="row">
+											<div class="border border-dark p-2 rounded w-50">
+												<label class="font-weight-bold h5">Is the place
+													sanitized? </label><br>
+												<div
+													class="custom-control custom-radio custom-control-inline">
+													<input type="radio" id="customRadioInline1"
+														name="customRadioInline1" class="custom-control-input">
+													<label class="custom-control-label"
+														for="customRadioInline1">True</label>
+												</div>
+												<div
+													class="custom-control custom-radio custom-control-inline">
+													<input type="radio" id="customRadioInline2"
+														name="customRadioInline1" class="custom-control-input">
+													<label class="custom-control-label"
+														for="customRadioInline2">False</label>
+												</div>
+											</div>
+
+											<div class="border border-dark p-2 rounded w-50">
+												<label class="font-weight-bold h5">Are there
+													Temperature Sensors at location? </label><br>
+												<div
+													class="custom-control custom-radio custom-control-inline">
+													<input type="radio" id="customRadioInline1"
+														name="customRadioInline1" class="custom-control-input">
+													<label class="custom-control-label"
+														for="customRadioInline1">True</label>
+												</div>
+												<div
+													class="custom-control custom-radio custom-control-inline">
+													<input type="radio" id="customRadioInline2"
+														name="customRadioInline1" class="custom-control-input">
+													<label class="custom-control-label"
+														for="customRadioInline2">False</label>
+												</div>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary">Sign in</button>
+									</form>
 								</div>
 
-								<footer class="mt-5 blockquote-footer">DoU was last
-								modified on <cite id="last_modified_time"
-									class="text-dark font-weight-bold" title="DoU Last Modified On"></cite></footer>
+
+								<div id="post-comment" class="card-body border-bottom"
+									style="display: block">
+									<div id="post-comment-div" class="row">
+										<div class="float-left" style="width: 100%;">
+											<textarea id="comment" class="form-control shadow"
+												placeholder="write a comment..." cols=3></textarea>
+											<p class="ml-2 mt-2" id="add-comment-instruction"
+												style="float: left"></p>
+											<div class="mr-2 float-right mt-2">
+												<button id="comment-save-button" type="button"
+													class="btn btn-outline-dark" onclick="addComment()">
+													Save</i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div></div>
+								<div class="card-body">
+									<div class="row bootstrap snippets">
+										<div class="col-md-offset-2 col-sm-12">
+											<div class="comment-wrapper">
+												<div class="panel panel-info">
+													<p id="no-review-instruction" class="card-text"
+														style="text-align: center;">No Comments yet</p>
+
+													<!-- Comment card template -->
+													<div style="display: block;">
+														<div id="review-div-template"
+															class="card shadow w-75 mb-3">
+															<div id="review-author-div" class="p-0">
+																<strong class="author">Sumanth</strong>
+															</div>
+															<div id="reivew-body-div"
+																class="card-body text-dark p-0 pl-2">QWERTYUIOP ASDFGHJKL ZXCVBNM</div>
+															<footer id="comment-time-div"
+																class="ml-3 blockquote-footer time"></footer>
+														</div>
+													</div>
+
+													<div id="comments-list" class="panel-body"
+														style="display: block">
+
+														<div id="comment-div-template"
+															class="card shadow w-75 mb-3 float-right bg-light">
+															<div id="comment-author-div" class="p-0 pr-2 text-right">
+																<strong class="author">Sumanth</strong>
+															</div>
+															<div id="comment-body-div"
+																class="card-body text-dark p-0 pl-2">ASDFGHJKLBVCX ZQWERTYUIO</div>
+															<footer id="comment-time-div"
+																class="ml-3 blockquote-footer time"></footer>
+														</div>
+
+
+														<div class="card shadow w-75 mb-3">
+															<div class="p-0 pl-2">
+																<strong class="author">Sumanth</strong>
+															</div>
+															<div class="card-body text-dark p-0 pl-2">qwertyuioplkjhgfdsa zxcvbnm,</div>
+															<footer class="ml-3 blockquote-footer time"></footer>
+														</div>
+
+													</div>
+													<div id="log-div-template" class="card border border-0">
+														<div class="card-body"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 
 						</div>
@@ -1053,7 +1286,8 @@
 	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-range/4.0.2/moment-range.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment-range/4.0.2/moment-range.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 	<!-- 	<script

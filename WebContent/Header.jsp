@@ -357,8 +357,7 @@ function cityChanged(e) {
 			 <form
 				class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 				<div class="input-group">
-				
-				
+
 				<select class="selectBoxClass" onChange="cityChanged(event);">
 				<option>Bangalore</option>
 				<option>Pune</option>
@@ -372,7 +371,7 @@ function cityChanged(e) {
 						placeholder="Search for safer locations" aria-label="Search"
 						aria-describedby="basic-addon2" style="height: 50px;font-size: 20px;">
 					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
+						<button class="btn btn-primary" type="button" onclick="getRelevantGroups()"> 
 							<i class="fas fa-search fa-sm"></i>
 						</button>
 					</div>
@@ -392,7 +391,7 @@ function cityChanged(e) {
 							Sumanth
 					</span> <img id="userimg"
 						class="border border-dark img-profile rounded-circle"
-						src="X">
+						src="img/default-user-profile-pic.png">
 				</a> <!-- Dropdown - User Information -->
 					<div
 						class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

@@ -25,9 +25,10 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <link href="css/Form.css" rel="stylesheet">
-
+<link href="css/ChatBox.css" rel="stylesheet">
 <link href="css/CommonStyles.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -35,61 +36,6 @@
 	<%@ include file="Header.jsp"%>
 
 	<!-- DoM templates start -->
-
-	<!-- recent DoU template start -->
-	<div style="display: none;">
-		<div style="width: 30rem; word-break: break-all" id="template-card"
-			class="card border-primary shadow mb-4">
-			<!-- Card Header - Dropdown -->
-			<div
-				class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-				<h6 id="dou_name" class="m-0 font-weight-bold text-primary"></h6>
-				<!-- <div class="dropdown no-arrow">
-					<a class="dropdown-toggle" href="#" role="button"
-						id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i
-						class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-					</a>
-					<div
-						class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-						aria-labelledby="dropdownMenuLink">
-						<div class="dropdown-header">Dropdown Header:</div>
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</div> -->
-			</div>
-			<!-- Card Body -->
-			<div class="card-body">
-				<div style="float: right">
-					<span id="dou_status" class="badge badge-pill badge-primary"></span>
-				</div>
-				<br>
-				<div>
-					<b><i>Initiated By:
-							<p id="created_by"></p>
-					</i></b>
-				</div>
-				<div>
-					<b><i>DoU Version:
-							<p id="dou_file_version"></p>
-					</i></b>
-				</div>
-			</div>
-			<div style="border: 0px;" class="card-footer bg-white">
-				<a id="view_dou" href="#" class="btn btn-primary dou-tooltips"
-					data-placement="top" title="View DoU Details">View DoU</a>
-			</div>
-			<div class="card-footer">
-				<small class="text-muted">Last updated on
-					<p id="last_modified_time"></p>
-				</small>
-			</div>
-		</div>
-	</div>
-	<!-- recent DoU template end -->
 
 	<!-- DoM templates end -->
 
@@ -214,16 +160,6 @@
 		<!-- Content Row -->
 		<div class="row">
 
-
-
-        
-			
-
-
-
-
-
-
 			<!-- DoU pending status card -->
 			<div class="col-2 mb-4">
 				<div class="card border-left-success shadow h-100 py-2">
@@ -325,7 +261,7 @@
 
 
 
-			
+
 
 
 
@@ -338,7 +274,7 @@
 							<div class="col mr-2">
 								<div
 									class="text-xs font-weight-bold text-success text-uppercase mb-1">Groceries
-									</div>
+								</div>
 								<div class="row no-gutters align-items-center">
 									<div class="col-auto">
 										<div id="status-approved-count"
@@ -362,470 +298,349 @@
 		</div>
 		<!-- Recent DoUs heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-dark">
+			<!-- <h1 class="h3 mb-0 text-dark">
 				Showing <b id="category-name">Hospitals</b>
-			</h1>
+			</h1> -->
+
+
+			<!-- Extra large modal
+			<button type="button" class="btn btn-primary" data-toggle="modal"
+				data-target=".bd-example-modal-xl">Extra large modal</button> -->
+
+			<div id="details-modal" class="modal fade bd-example-modal-xl"
+				tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div id="dou" locationId="" class="card-body pl-0 pr-0">
+							<div id="dou-header"
+								class="dynamic-block card-header border dynamic-border-color border-bottom-0 rounded-bottom"
+								style="display: block">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close" style="padding-left: 10px;">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<div id="" class="float-right">
+									<button id="contact-button" class="btn btn-outline-dark">Contact
+									</button>
+								</div>
+								<div>
+									<b id="location-name" class="card-title font-weight-bold h2">Apollo</b>
+									<b id="location-rating-wrapper"
+										class="card-title badge badge-dark ml-3 h1"
+										style="padding: 5px; font-size: 20px;">Overall <i
+										id="location-rating">3.8</i> <i class="far fa-star"></i>
+									</b>
+								</div>
+
+
+								<footer id="location-address"
+									class="card-subtitle blockquote-footer" id="address"
+									class="text-dark font-weight-bold" title="Initiated Time">Bheema
+								Building, Kentucky road, Opp IIM Blr, Bangalore</footer>
+							</div>
+							<div class="dynamic-block tab-content" id="myTabContent"
+								style="display: block">
+								<!-- Details Tab -->
+								<div id="details"
+									class="card tab-pane fade shadow dynamic-border-color active show border-top-0"
+									role="tabpanel" aria-labelledby="details-tab">
+
+									<div class="card-body">
+										<!-- <div id="desc" class="">
+									<p class="card-text">Apollo Clinics are multi-specialty
+										clinics run by Apollo Health & Lifestyle Limited (AHLL), a
+										subsidiary of Apollo Hospitals Enterprise Limited (AHEL). AHLL
+										is one of the largest players in the retail healthcare segment
+										in India.</p>
+									<p class="card-text">Apollo Clinics was founded in 2002
+										with the aim “to bring healthcare of international standards
+										within the reach of every individual.” To achieve this, Apollo
+										Clinics run a large network of Apollo Clinics with over 75
+										clinics, both owned and franchised in India and overseas.</p>
+									<p class="card-text">Each Apollo Clinic is committed to not
+										only providing consistently superior quality health care
+										services but also addressing the day-to-day health care needs
+										of the family. To maximize convenience and comfort, Apollo
+										Clinic is an integrated model and offers facilities for
+										Specialist Consultation, Diagnostics, Preventive Health Checks
+										and Pharmacy, all under one roof.</p>
+								</div> -->
+									</div>
+
+									<div id="reviews&ratings"
+										class="card dynamic-border-color border-0">
+
+										<!-- <div class="d-flex justify-content-between">
+										<h4 class="mx-4">Review & Ratings</h4>
+										<div class="mr-4 h3 border border-dark rounded p-1">
+											Overall <b>3.8/5</b>
+										</div>
+									</div> -->
+										<div class="card-group p-2 border-0" id="ratings">
+											<div class="col-3 mb-4">
+												<div class="card border-left-info shadow h-100 py-2">
+													<div class="card-body">
+														<div class="row no-gutters align-items-center">
+															<div class="col mr-2">
+																<div
+																	class="h6 small font-weight-bold text-info text-uppercase mb-1">Sanitization</div>
+																<div class="row no-gutters align-items-center">
+																	<div class="col-auto mr-4 small">
+																		<i class="fas fa-pump-medical fa-2x text-dark"></i>
+																	</div>
+
+																	<div class="col">
+																		<div class="progress progress-sm mr-2">
+																			<div id="sanitization-rating-progress"
+																				class="progress-bar bg-info" role="progressbar"
+																				style="width: 68%" aria-valuenow="50"
+																				aria-valuemin="0" aria-valuemax="100"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-auto">
+																<div class="h5 mr-2 font-weight-bold text-gray-800">
+																	<i id="sanitization-rating">3.4</i><i>/5</i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-3 mb-4">
+												<div class="card border-left-info shadow h-100 py-2">
+													<div class="card-body">
+														<div class="row no-gutters align-items-center">
+															<div class="col mr-2">
+																<div
+																	class="h6 small font-weight-bold text-info text-uppercase mb-1">Temperature
+																	Sensor</div>
+																<div class="row no-gutters align-items-center">
+																	<div class="col-auto mr-4 small">
+																		<i class="fas fa-temperature-high fa-2x text-dark"></i>
+																	</div>
+
+																	<div class="col">
+																		<div class="progress progress-sm mr-2">
+																			<div id="temp-sensor-rating-progress"
+																				class="progress-bar bg-info" role="progressbar"
+																				style="width: 68%" aria-valuenow="50"
+																				aria-valuemin="0" aria-valuemax="100"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-auto">
+																<div class="h5 mr-2 font-weight-bold text-gray-800">
+																	<i id="temp-sensor-rating">3.4</i><i>/5</i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-3 mb-4">
+												<div class="card border-left-info shadow h-100 py-2">
+													<div class="card-body">
+														<div class="row no-gutters align-items-center">
+															<div class="col mr-2">
+																<div
+																	class="h6 small font-weight-bold text-info text-uppercase mb-1">Social
+																	Distancing</div>
+																<div class="row no-gutters align-items-center">
+																	<div class="col-auto mr-4 small">
+																		<i class="fas fa-people-arrows fa-2x text-dark"></i>
+																	</div>
+
+																	<div class="col">
+																		<div class="progress progress-sm mr-2">
+																			<div id="social-distance-rating-progress"
+																				class="progress-bar bg-info" role="progressbar"
+																				style="width: 68%" aria-valuenow="50"
+																				aria-valuemin="0" aria-valuemax="100"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-auto">
+																<div class="h5 mr-2 font-weight-bold text-gray-800">
+																	<i id="social-distance-rating">3.4</i><i>/5</i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-3 mb-4">
+												<div class="card border-left-info shadow h-100 py-2">
+													<div class="card-body">
+														<div class="row no-gutters align-items-center">
+															<div class="col mr-2">
+																<div
+																	class="h6 small font-weight-bold text-info text-uppercase mb-1">Mask</div>
+																<div class="row no-gutters align-items-center">
+																	<div class="col-auto mr-4 small">
+																		<i class="fas fa-head-side-mask fa-2x text-dark"></i>
+																	</div>
+
+																	<div class="col">
+																		<div class="progress progress-sm mr-2">
+																			<div id="mask-rating-progress"
+																				class="progress-bar bg-info" role="progressbar"
+																				style="width: 68%" aria-valuenow="50"
+																				aria-valuemin="0" aria-valuemax="100"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-auto">
+																<div class="h5 mr-2 font-weight-bold text-gray-800">
+																	<i id="mask-rating">3.4</i><i>/5</i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="accordion" id="accordionExample">
+											<div class="card">
+												<div class="card-header" id="headingOne">
+													<h2 class="mb-0">
+														<button class="btn btn-link" type="button"
+															data-toggle="collapse" data-target="#collapseOne"
+															aria-expanded="true" aria-controls="collapseOne">
+															Provide feedback</button>
+													</h2>
+												</div>
+
+												<div id="collapseOne" class="collapse show"
+													aria-labelledby="headingOne"
+													data-parent="#accordionExample">
+													<div class="card-body">
+														<div class="card-body p-4">
+															<iframe src="/feedback.jsp" width="1000vh" height="650vh"></iframe>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="card">
+												<div class="card-header" id="headingTwo">
+													<h2 class="mb-0">
+														<button class="btn btn-link collapsed" type="button"
+															data-toggle="collapse" data-target="#collapseTwo"
+															aria-expanded="false" aria-controls="collapseTwo">
+															Reviews</button>
+													</h2>
+												</div>
+												<div id="collapseTwo" class="collapse"
+													aria-labelledby="headingTwo"
+													data-parent="#accordionExample">
+													<div class="card-body">
+														<div class="row bootstrap snippets">
+															<div class="col-md-offset-2 col-sm-12">
+																<div class="review-wrapper">
+																	<div class="panel panel-info">
+																		<p id="no-review-instruction" class="card-text"
+																			style="text-align: center;">No Reviews yet</p>
+
+																		<!-- Comment card template -->
+																		<div style="display: none;">
+
+																			<div id="review-div-template"
+																				class="card shadow w-75 mb-3">
+																				<div  class="p-0 pl-2">
+																					<strong id="review-author-div" class="author"></strong>
+																				</div>
+																				<div id="reivew-body-div"
+																					class="card-body text-dark p-0 pl-2"></div>
+																				<footer
+																					class="ml-3 text-uppercase blockquote-footer time">Overall
+																				Rating : <b id="author-overall-rating">3.8</b></footer>
+																			</div>
+
+																		</div>
+
+																		<div id="reviews-list" class="panel-body"
+																			style="display: block"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+		<div id="template-card" style="display: none;">
+			<div class="card m-2" style="width: 23rem;">
+				<div id="location-category"
+					class="footer badge badge-pill badge-dark font-weight-bold float-left text-wrap w-25 mt-1 ml-1">Hospital</div>
+				<div class="card-body">
+					<div class="d-flex justify-content-between">
+						<h3 id="location-name" class="card-title font-weight-bold">Apollo</h3>
+						<div class="h5">
+							<span class="badge"><i id="location-rating">3.8</i> <i
+								class="far fa-star"></i></span>
+						</div>
+
+					</div>
+
+					<h6 id="location-address"
+						class="card-subtitle mb-3 small text-muted">Bheema Building,
+						Kentucky road, Opp IIM Blr, Bangalore</h6>
+					<div class="card-text">
+						<dl class="row">
+							<dt class="col-sm-6">Sanitization</dt>
+							<dd id="sanitization-value" class="col-sm-6 font-weight-bold ">Good</dd>
+
+							<dt class="col-sm-6">Temperature Sensor</dt>
+							<dd id="temp-sensor-value" class="col-sm-6 font-weight-bold ">Not
+								available</dd>
+
+							<dt class="col-sm-6">Social Distancing</dt>
+							<dd id="social-distance-value" class="col-sm-6 font-weight-bold ">Not
+								well maintained</dd>
+
+							<dt class="col-sm-6">Mask</dt>
+							<dd id="mask-value" class="col-sm-6 font-weight-bold ">Mandatory</dd>
+
+						</dl>
+					</div>
+					<h5>
+						<a id="details-page-link" href="#" data-toggle="modal"
+							data-target=".bd-example-modal-xl"
+							class="stretched-link float-right" onclick="populateModal(this)">
+						</a>
+					</h5>
+				</div>
+
+			</div>
 		</div>
 
 		<!-- Content Row  for cards in masonry arrangement-->
-		<div id="relevant-cards" class="row view-group d-flex justify-content-start">
-
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-			<div class="card m-2" style="width: 23rem;">
-				<div class="card-body">
-					<div class="d-flex justify-content-between">
-						<h4 class="card-title font-weight-bold">Apollo</h4>
-						<div class="h5">
-							<span class="badge badge-success">3.8 <i class="far fa-star"></i></span>
-						</div>
-
-					</div>
-
-					<h6 class="card-subtitle mb-3 small text-muted">Bheema
-						Building, Kentucky road, Opp IIM Blr, Bangalore</h6>
-					<div class="card-text">
-						<dl class="row">
-							<dt class="col-sm-6">Sanitization </dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Good</dd>
-
-							<dt class="col-sm-6">Temperature Sensor</dt>
-							<dd class="col-sm-6 font-weight-bold text-danger">Not available</dd>
-
-							<dt class="col-sm-6">Social Distancing</dt>
-							<dd class="col-sm-6 font-weight-bold text-warning">Not well maintained</dd>
-
-							<dt class="col-sm-6">Mask</dt>
-							<dd class="col-sm-6 font-weight-bold text-success">Mandatory</dd>
-
-						</dl>
-					</div>
-					<h5>
-						<a href="#"
-							class="stretched-link float-right"> </a>
-					</h5>
-				</div>
-			</div>
-			
-		</div>
+		<div id="relevant-cards"
+			class="row view-group d-flex justify-content-start"></div>
 	</div>
 
 
@@ -847,20 +662,6 @@
 </html>
 
 
-
-
-
-
-<!--  "name" : "Prabhat Kumar",
-        "email" : "prabhat.kumar@in.ibm.com",
-        "sanitization" : true,
-        "temperature_sensor" : true,
-        "social_distancing" : false,
-        "mask" : "mandatory",
-        "rating" : "3.5",
-        "review_comment" : -->
-        
-        
 
 <!-- function getCard(catName, count)
 {

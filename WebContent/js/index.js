@@ -1,16 +1,16 @@
 $(document).ready(function() {
 	activeNavItem();
 	getDoUStatusCount();
-	getRelevantGroups();
+	// getRelevantGroups();
 });
-
+var global_DataArr;
 function onPageLoad() {
 	getDoUStatusCount();
 	getRelevantGroups();
 }
 
 function activeNavItem() {
-//	$("#dashboard-nav-item a")[0].prepend("");
+// $("#dashboard-nav-item a")[0].prepend("");
 	$("#dashboard-nav-item").addClass("active");
 }
 
@@ -23,63 +23,149 @@ function getDoUStatusCount() {
 	});
 }
 
-function createCardDeck() {
-	var deck = document.createElement("div");
-	deck.className = "card-deck";
-	return deck;
+function populateModal(obj) {
+	
+	var id = $(obj).attr("aria-id")
+	var data;
+	for(var i=0; i<global_DataArr.length; i++) {
+		if(global_DataArr[i]["id"] == id) {
+			data = global_DataArr[i];
+			// console.log(global_DataArr[i]);
+			break;
+		}
+	}
+	
+	var color;
+	if(data["overAllRating"] < 2.5) {
+		color = "#dc3545";
+	} else if( data["overAllRating"] < 4.0 ) {
+		color = "#ffc107";
+	} else {
+		color = "#28a745";
+	}
+	
+	var modal = $("#details-modal");
+	
+	modal.find("#location-name").text(data["name"]);
+	modal.find("#location-rating").text(data["overAllRating"]);
+	modal.find("#location-address").text(data["address"]);
+	
+	modal.find("#sanitization-rating").text(data["overAllsanitization"]);
+	modal.find("#temp-sensor-rating").text(data["overAlltemperature_sensor"]);
+	modal.find("#social-distance-rating").text(data["overAllsocial_distancing"]);
+	modal.find("#mask-rating").text(data["overAllmask"]);
+	
+	modal.find("#sanitization-rating-progress").css("width", Math.ceil((data["overAllsanitization"]/5)*100)+"%");
+	modal.find("#temp-sensor-rating-progress").css("width", Math.ceil((data["overAlltemperature_sensor"]/5)*100)+"%");
+	modal.find("#social-distance-rating-progress").css("width", Math.ceil((data["overAllsocial_distancing"]/5)*100)+"%");
+	modal.find("#mask-rating-progress").css("width", Math.ceil((data["overAllmask"]/5)*100)+"%");
+
+	modal.find("#location-rating-wrapper").css("color", color);
+	
+	
+	if(data["safty_review"].length > 0) {
+		modal.find("#no-review-instruction").css("display", "none");
+	} else {
+		modal.find("#no-review-instruction").css("display", "block");
+	}
+	
+	var reviewList = modal.find("#reviews-list");
+	reviewList.empty();
+	
+	for(var i=0; i< data["safty_review"].length; i++) {
+		reviewList.append(generateReviewCard(data["safty_review"][i]))
+	}
+	
+//	#28a745 - su
+//	#ffc107 - wa
+//	#dc3545 - da
+}
+
+
+function generateReviewCard(review) {
+	var reviewCard = $("#review-div-template").clone();
+	reviewCard.find("#review-author-div").text(review["name"]);
+	reviewCard.find("#reivew-body-div").text(review["review_comment"]);
+	reviewCard.find("#author-overall-rating").text(review["rating"]);
+	
+	reviewCard.removeAttr("id")
+	return reviewCard;
+	
 }
 
 function getRelevantGroups() {
-	$.get("/rest/dou/groups/relevant", function(data) {
+	$.get("/rest/dou/groups", function(data) {
+		global_DataArr = data["safeLocData"];
 		// Object.keys(data[0]);
-		$("#relevant-cards").empty();
-		var k = 0;
-		for (i = 0; i < data.length; i++) {
-			var deck = createCardDeck();
-			deck.id = "card-deck-" + k;
-			$("#relevant-cards").append(deck);
-
-			for (j = 0; j < 3 && i < data.length; j++, i++) {
-				$("#card-deck-" + k).append(generateDoUCard(data[i]));
-			}
-			k++;
-			i--;
-		}
+		console.log(data)
+		var dataArr = data["safeLocData"];
+		populateRelevantCardsdeck(dataArr);
 	});
 }
 
-function generateDoUCard(data) {
-	var card = $("#template-card").clone();
-	var color = colorClass[data["dou_status"]]
-	card.addClass("border-"+color);
-	card.find("#dou_name").addClass("text-"+color);
-	card.find("#dou_status").addClass("badge-"+color);
-	card.find("#view_dou").addClass("btn-"+color);
-	card.find("#view_dou").attr("href", "/DoUDetails.jsp?id="+data["_id"]);
-	var keys = Object.keys(data);
-	var len = keys.length;
-	data["last_modified_time"] = getCurrentTimeZoneTime(data["last_modified_time"]);
-//	console.log(data["last_modified_time"]);
-	for (var i = 0; i < len; i++) {
-		card.find("#" + keys[i]).text(data[keys[i]]);
+function populateRelevantCardsdeck(dataArr) {
+	console.log(dataArr.length)
+	$("#relevant-cards").empty();
+	for (i = 0; i < dataArr.length; i++) {
+		$("#relevant-cards").append(generateDoUCard(dataArr[i]));
 	}
+}
+
+function generateDoUCard(data) {
+	//console.log(data)
+	var card = $("#template-card").clone();
+	
+	var color;
+	var colorClass;
+	if(data["overAllRating"] < 2.5) {
+		color = "#dc3545";
+		colorClass = "danger"
+	} else if( data["overAllRating"] < 4.0 ) {
+		color = "#ffc107";
+		colorClass = "warning"
+	} else {
+		color = "#28a745";
+		colorClass = "success"
+	}
+
+
+	// card.attr("aria-id",data["id"]);
+	card.find("#location-name").text(data["name"]);
+	card.find("#location-rating").text(data["overAllRating"]);
+	card.find("#location-address").text(data["address"]);
+	card.find("#sanitization-value").text(data["overAllsanitization"]);
+	card.find("#temp-sensor-value").text(data["overAlltemperature_sensor"]);
+	card.find("#social-distance-value").text(data["overAllsocial_distancing"]);
+	card.find("#mask-value").text(data["overAllmask"]);
+	card.find("#details-page-link").attr("aria-id", data["id"]);
+	card.find("#location-category").text(data["type"]);
+	//card.find("#details-page-link").click(populateModal(data["id"]));
+	card.find("#location-rating").parent().addClass("badge-"+colorClass);
+	
+	card.find("#sanitization-value").addClass();
+	card.find("#temp-sensor-value").addClass();
+	card.find("#social-distance-value").addClass();
+	card.find("#mask-value").addClass();
+	
 	card.removeAttr('id');
+	card.removeAttr("style");
 	return card;
 }
 
-//Program a custom submit function for the form
+// Program a custom submit function for the form
 $("#create_dou_form").submit(function(event) {
 
-	//disable the default form submission
+	// disable the default form submission
 	event.preventDefault();
 	
 	
-	var proceed = setAccessTo(); // Sets the accessto values which is in form of badges.
+	var proceed = setAccessTo(); // Sets the accessto values which is in form
+									// of badges.
 	
 	if (proceed != false) {
 		$("#initiate-button-disabled").removeClass("d-none");
 		$("#initiate-button").addClass("d-none");
-		//grab all form data  
+		// grab all form data
 		var formData = new FormData($(this)[0]);
 
 		$.ajax({

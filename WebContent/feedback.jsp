@@ -7,7 +7,6 @@
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
@@ -105,10 +104,10 @@
 #rating-5:checked ~ .emoji-wrapper > .emoji { transform: translateY(-500px); }
 
 .feedback {
-  max-width: 360px;
+  margin: 423px -13px 19px -50px;
+  max-width: 250px;
   background-color: #fff;
   width: 100%;
-  padding: 30px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -116,6 +115,86 @@
   align-items: center;
   box-shadow: 0 4px 30px rgba(0,0,0,.05);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.switch-field {
+    display: flex;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 13px 10px;
+}
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked + label {
+    background-color: #a5dc86;
+    box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+/* This is just for CodePen. */
+
+.form {
+    max-width: 600px;
+    font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+    font-weight: normal;
+    line-height: 1.625;
+    margin: 8px auto;
+    padding: 16px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+
+
+
 </style>
 </head>
 
@@ -124,12 +203,72 @@
 
 <div>
 
-<input type="radio" name="">
+
+
+
+
+<form class="form">
+    
+    
+    <h2 style="float: left;">Is there social distancing maintained?</h2>
+    <div class="switch-field">
+        <input type="radio" id="radio-one" name="distancingswitch-one" value="yes" checked/>
+        <label for="radio-one">Yes</label>
+        <input type="radio" id="radio-two" name="distancingswitch-one" value="no" />
+        <label for="radio-two">No</label>
+    </div>
+    
+    
+    
+    <h2 style="float: left;">Is face mask mandatory to visit this location?</h2>
+    <div class="switch-field">
+        <input type="radio" id="radio-one1" name="maskswitch-one" value="yes" checked/>
+        <label for="radio-one1">Yes</label>
+        <input type="radio" id="radio-two1" name="maskswitch-one" value="no" />
+        <label for="radio-two1">No</label>
+    </div>
+    
+    
+    <h2 style="float: left;">Do you find hand sanitization for everyone?</h2>
+    <div class="switch-field">
+        <input type="radio" id="radio-one3" name="sanitizationswitch-one" value="yes" checked/>
+        <label for="radio-one3">Yes</label>
+        <input type="radio" id="radio-two3" name="sanitizationswitch-one" value="no" />
+        <label for="radio-two3">No</label>
+    </div>
+    
+    
+    <h2 style="float: left;">Is there body temperature check?</h2>
+    <div class="switch-field">
+        <input type="radio" id="radio-one4" name="temperatureswitch-one" value="yes" checked/>
+        <label for="radio-one4">Yes</label>
+        <input type="radio" id="radio-two4" name="temperatureswitch-one" value="no" />
+        <label for="radio-two4">No</label>
+    </div>
+
+    <!-- <h2>Three fields? Sure.</h2>
+    <div class="switch-field">
+        <input type="radio" id="radio-three" name="switch-two" value="yes" checked/>
+        <label for="radio-three">One</label>
+        <input type="radio" id="radio-four" name="switch-two" value="maybe" />
+        <label for="radio-four">Two</label>
+        <input type="radio" id="radio-five" name="switch-two" value="no" />
+        <label for="radio-five">Three</label>
+    </div> -->
+
+Your name: <input type ="text" name="name" style="padding: 10px; width: 300px;margin-bottom: 10px;" placeholder=""><br>
+Your email: <input type ="text" name="name" style="padding: 10px; width: 300px;margin-bottom: 10px;" placeholder=""><br>
+  
+Comments: <textarea rows="10" cols="50" placeholder="Your comment on the safety measures taken in this location"></textarea>  
+  
+  <button>Submit</button>
+</form>
 
 </div>
 
 
   <div class="feedback">
+  <span style="font-weight: bolder; padding: 10px; color: blueviolet;">Overall Feedback:</span>
     <div class="rating">
       <input type="radio" name="rating" id="rating-5">
       <label for="rating-5"></label>

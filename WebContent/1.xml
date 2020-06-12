@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<markers>
+    <marker id="1" name="Ramakrishna Medical Stores" address="1/28 Macleay Street, Majestic, Bangalore" overAllRating="4.0" lat="12.973150" lng="77.575165" type="restaurant" />
+    <marker id="2" name="MedPlus Ln Puram" address="580 Darling Street, Majestic, Bangalore" overAllRating="4.2" lat="12.973161" lng="77.573685" type="restaurant" />
+    <marker id="3" name="J K Medicals" address="76 Wilford Street, Majestic, Bangalore" overAllRating="3.8" lat="12.972920" lng="77.572064" type="bar" />
+    <marker id="4" name="Mandhara Medicals" address="Greenwood Plaza, 36 Blue St, Majestic, Bangalore" overAllRating="4.1" lat="12.973380" lng="77.572676" type="bar" />
+    <marker id="5" name="Vijaya Medicals" address="7A, 2 Huntley Street, Majestic, Bangalore" overAllRating="4.4" lat="12.974091" lng="77.570906" type="bar" />
+    <marker id="6" name="The Homeopathy Drug Center" address="16 Foster Street, Majestic, Bangalore" overAllRating="4.6" lat="12.974844" lng="77.574661" type="bar" />
+    <marker id="7" name="Gururaja Medicals" address="43 Macpherson Street, Majestic, Bangalore" overAllRating="4.0" lat="12.976004" lng="77.576002" type="restaurant" />
+    <marker id="8" name="Sree Lakshmi Medicals" address="60-64 Reservoir Street, Majestic, Bangalore" overAllRating="4.8" lat="12.976862" lng="77.575584" type="restaurant" />
+    <marker id="9" name="Vybhav Medical Centre" address="no2-172/3, rama krishna layout, Majestic, Bangalore" overAllRating="4.1" lat="12.977186" lng="77.575122" type="restaurant" />
+</markers>
